@@ -31,19 +31,30 @@ export type Author = {
 /** A module is a single unit of teaching. A Track can have multiple modules */
 export type Module = {
   __typename?: 'Module';
+  /** The conten of the module */
+  content?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   /** The length of the module in minutes */
   length?: Maybe<Scalars['Int']['output']>;
   /** The title of the module */
   title?: Maybe<Scalars['String']['output']>;
+  /** The video url of the module */
+  videoUrl?: Maybe<Scalars['String']['output']>;
 };
 
 export type Query = {
   __typename?: 'Query';
+  /** Fetch a single module by id */
+  module: Module;
   /** Fetch a specific track by id */
   track?: Maybe<Track>;
   /** Query to get list of tracks for our homepage grid */
   tracksForHome: Array<Track>;
+};
+
+
+export type QueryModuleArgs = {
+  id: Scalars['ID']['input'];
 };
 
 
@@ -174,13 +185,16 @@ export type AuthorResolvers<ContextType = DataSourceContext, ParentType extends 
 };
 
 export type ModuleResolvers<ContextType = DataSourceContext, ParentType extends ResolversParentTypes['Module'] = ResolversParentTypes['Module']> = {
+  content?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   length?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   title?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  videoUrl?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type QueryResolvers<ContextType = DataSourceContext, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
+  module?: Resolver<ResolversTypes['Module'], ParentType, ContextType, RequireFields<QueryModuleArgs, 'id'>>;
   track?: Resolver<Maybe<ResolversTypes['Track']>, ParentType, ContextType, RequireFields<QueryTrackArgs, 'id'>>;
   tracksForHome?: Resolver<Array<ResolversTypes['Track']>, ParentType, ContextType>;
 };
