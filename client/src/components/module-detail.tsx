@@ -11,7 +11,10 @@ import MarkDown from './md-content';
  * Module Detail renders content of a given module:
  * Video player, modules navigation and markdown content
  */
-const ModuleDetail: React.FC<{track: any, module: any}> = ({ track, module }) => {
+const ModuleDetail: React.FC<{ track: any; module: any }> = ({
+  track,
+  module
+}) => {
   const { videoUrl, title, content } = module;
   const { width } = useWindowDimensions();
 
@@ -20,7 +23,7 @@ const ModuleDetail: React.FC<{track: any, module: any}> = ({ track, module }) =>
       <TopSection>
         <TopContainer totalWidth={width}>
           <PlayerContainer>
-            <ReactPlayer url={videoUrl} width="100%" height="100%" />
+            <ReactPlayer url={videoUrl} width='100%' height='100%' />
           </PlayerContainer>
           <ModulesNav track={track} module={module}></ModulesNav>
         </TopContainer>
@@ -41,7 +44,7 @@ const TopSection = styled.div({
   justifyContent: 'center',
   backgroundColor: colors.black.base,
   padding: 20,
-  borderBottom: `solid 1px ${colors.pink.base}`,
+  borderBottom: `solid 1px ${colors.pink.base}`
 });
 
 const TopContainer = styled.div(({ totalWidth }: { totalWidth: number }) => ({
@@ -52,11 +55,11 @@ const TopContainer = styled.div(({ totalWidth }: { totalWidth: number }) => ({
   maxWidth: widths.largePageWidth,
   // 60 below removes 3 * 20 horizontal paddings (sides and inner between player and list)
   height: ((totalWidth - 60) * (2 / 3)) / (16 / 9),
-  maxHeight: (widths.largePageWidth * (2 / 3)) / (16 / 9),
+  maxHeight: (widths.largePageWidth * (2 / 3)) / (16 / 9)
 }));
 
 const PlayerContainer = styled.div({
-  width: '66%',
+  width: '66%'
 });
 
 const ModuleTitle = styled.h1({
@@ -64,5 +67,5 @@ const ModuleTitle = styled.h1({
   marginBottom: 30,
   paddingBottom: 10,
   color: colors.black.lighter,
-  borderBottom: `solid 1px ${colors.pink.base}`,
+  borderBottom: `solid 1px ${colors.pink.base}`
 });
