@@ -13,9 +13,9 @@
     "generate": "graphql-codegen"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^5.0.2",
-    "@graphql-codegen/typescript": "^4.0.7",
-    "@graphql-codegen/typescript-resolvers": "^4.1.0",
+    "@graphql-codegen/cli": "^6.3.1",
+    "@graphql-codegen/typescript": "^5.0.10",
+    "@graphql-codegen/typescript-resolvers": "^5.1.8",
     "dotenv": "^8.6.0",
     "nodemon": "^3.1.0",
     "ts-node-dev": "^2.0.0",
