@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@apollo/datasource-rest": "^6.3.0",
-    "@apollo/server": "^4.10.4",
+    "@apollo/server": "^5.5.1",
     "@graphql-tools/mock": "^9.0.3",
     "@graphql-tools/schema": "^10.0.4",
     "graphql": "^16.9.0",
